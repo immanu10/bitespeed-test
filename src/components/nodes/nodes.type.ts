@@ -9,3 +9,9 @@ export type TextNodeData = {
 };
 
 export type TextNode = Node<TextNodeData, NodeTypes.Text>;
+
+// Add Other types of Node data
+export type NodeData = TextNodeData;
+
+// Add Other types of Node
+export type MyAppNode = TextNode;

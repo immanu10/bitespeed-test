@@ -4,7 +4,7 @@ import { NodeTypes as ReactFlowNodeTypes } from "reactflow";
 
 export const initialNodes: TextNode[] = [
   {
-    id: "a",
+    id: "text-a",
     type: NodeTypes.Text,
     position: { x: 100, y: 100 },
     data: { text: "hellooo" },
