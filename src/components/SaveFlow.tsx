@@ -1,22 +1,25 @@
 import { useContext } from "react";
 import { AppContext, AppContextType } from "../AppContext";
+import toast from "react-hot-toast";
 
 export function SaveFlow() {
   const { nodes, edges } = useContext(AppContext) as AppContextType;
 
   const handleSave = () => {
+    // Get all node with no outgoing edges (target handles)
     const nodesWithNoEdges = nodes.filter((node) => {
       const nodeEdges = edges.filter((edge) => edge.source === node.id);
       return nodeEdges.length === 0;
     });
-    console.log(nodesWithNoEdges);
 
     if (nodesWithNoEdges.length > 1) {
-      alert("cannot save the flow");
+      toast.error("Cannot save flow. More than one node has no outgoing edges");
       return;
     }
+    console.log(nodesWithNoEdges);
     // Save to Database or local storage here.
     // show saved success message
+    toast.success("Saved!");
   };
   return (
     <button

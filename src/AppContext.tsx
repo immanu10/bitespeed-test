@@ -16,6 +16,7 @@ import { DndProvider, DropTargetMonitor } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { NodeData, NodeTypes } from "./components/nodes/nodes.type";
 import { TestNodeData } from "./lib/utils";
+import toast from "react-hot-toast";
 
 export type AppContextType = {
   nodes: Node[];
@@ -28,6 +29,7 @@ export type AppContextType = {
     monitor: DropTargetMonitor<unknown, unknown>
   ) => void;
   changeNodeData: (id: string, data: NodeData) => void;
+  deSelectAllNodes: () => void;
 };
 
 export const AppContext = createContext<AppContextType | null>(null);
@@ -51,12 +53,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
       return element.source === sourceNodeId && element.target;
     });
 
-    // If the source node already has an outgoing edge, prevent the new connection or show alert messages
-    if (hasOutgoingEdge) return;
+    // If source node already has an outgoing edge, prevent the new connection and show alert message
+    if (hasOutgoingEdge) {
+      toast.error("Connection not allowed");
+      return;
+    }
 
     setEdges((eds) => addEdge(connection, eds));
   };
 
+  // Add node to the nodes list when node is dropped to the flow
   const onDropNode = (
     item: { type: NodeTypes; label: string },
     monitor: DropTargetMonitor<unknown, unknown>
@@ -76,6 +82,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setNodes([...nodes, newNode]);
   };
 
+  // Update data property of single node
   const changeNodeData = (id: string, data: NodeData) => {
     const updatedNode = nodes.map((node) => {
       if (node.id === id) {
@@ -92,6 +99,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setNodes(updatedNode);
   };
 
+  const deSelectAllNodes = () => {
+    const updatedNode = nodes.map((node) => {
+      return { ...node, selected: false };
+    });
+    setNodes(updatedNode);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -102,6 +116,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         onConnect,
         onDropNode,
         changeNodeData,
+        deSelectAllNodes,
       }}
     >
       <DndProvider backend={HTML5Backend}>

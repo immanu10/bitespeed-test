@@ -9,6 +9,7 @@ import { NodeTypes } from "./nodes/nodes.type";
 export function FlowArea() {
   const { nodes, edges, onNodesChange, onEdgesChange, onConnect, onDropNode } =
     useContext(AppContext) as AppContextType;
+
   const [, dropRef] = useDrop({
     accept: "node",
     drop: (item: { type: NodeTypes; label: string }, monitor) =>

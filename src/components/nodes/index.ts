@@ -7,7 +7,7 @@ export const initialNodes: TextNode[] = [
     id: "text-a",
     type: NodeTypes.Text,
     position: { x: 100, y: 100 },
-    data: { text: "hellooo" },
+    data: { text: "Welcome, Start dragging flows" },
   },
 ];
 
