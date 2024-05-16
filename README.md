@@ -1,54 +1,15 @@
-![](https://github.com/xyflow/web/blob/main/assets/codesandbox-header-ts.png?raw=true)
+Live Preview: https://bitespeed-test-ten.vercel.app/
 
-# React Flow starter (Vite + TS)
+### Steps I took to complete this task:
+0. Used [React Flow starter (Vite + TS)](https://github.com/xyflow/vite-react-flow-template) kit to get started with react flow.
+1. Played around with react flow for a bit to understand the concepts.
+2. Understood the problem statement and Quickly implemented basic nodes and edges setup.
+3. Used React-Dnd to implement drag and drop functionality.
+4. Took care of all the functionality and improved code extensibility.
+5. UI Overhaul.
 
-We've put together this template to serve as a starting point for folks
-interested in React Flow. You can use this both as a base for your own React
-Flow applications, or for small experiments or bug reports.
+### TechStack
+- Typescript, React+Vite, Tailwind, React Flow and React Dnd
 
-**TypeScript not your thing?** We also have a vanilla JavaScript starter template,
-just for you!
-
-## Getting up and running
-
-You can get this template without forking/cloning the repo using `degit`:
-
-```bash
-npx degit xyflow/vite-react-flow-template your-app-name
-```
-
-The template contains mostly the minimum dependencies to get up and running, but
-also includes eslint and some additional rules to help you write React code that
-is less likely to run into issues:
-
-```bash
-npm install # or `pnpm install` or `yarn install`
-```
-
-Vite is a great development server and build tool that we recommend our users to
-use. You can start a development server with:
-
-```bash
-npm run dev
-```
-
-While the development server is running, changes you make to the code will be
-automatically reflected in the browser!
-
-## Things to try:
-
-- Create a new custom node inside `src/nodes/` (don't forget to export it from `src/nodes/index.ts`).
-- Change how things look by [overriding some of the built-in classes](https://reactflow.dev/learn/customization/theming#overriding-built-in-classes).
-- Add a layouting library to [position your nodes automatically](https://reactflow.dev/learn/layouting/layouting)
-
-## Resources
-
-Links:
-
-- [React Flow - Docs](https://reactflow.dev)
-- [React Flow - Discord](https://discord.com/invite/Bqt6xrs)
-
-Learn:
-
-- [React Flow – Custom Nodes](https://reactflow.dev/learn/customization/custom-nodes)
-- [React Flow – Layouting](https://reactflow.dev/learn/layouting/layouting)
+<img width="1434" alt="Screenshot 2024-05-16 at 1 25 27 PM" src="https://github.com/immanu10/bitespeed-test/assets/54578417/407fcc6f-3f9c-4e06-b7e8-cde9a200b27a">
+<img width="1434" alt="Screenshot 2024-05-16 at 1 42 18 PM" src="https://github.com/immanu10/bitespeed-test/assets/54578417/f1d2fa52-0652-4822-a77d-ff0bcdda07a7">
